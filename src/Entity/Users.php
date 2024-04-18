@@ -19,6 +19,9 @@ class Users
     #[ORM\Column(length: 255, unique: true, nullable: false)]
     private string $email;
 
+    #[ORM\Column(length: 255)]
+    private ?string $token;
+
     #[ORM\Column(length: 255, nullable: false)]
     private string $name;
 
@@ -83,6 +86,15 @@ class Users
     public function setAge(int $age): self
     {
         $this->age = $age;
+        return $this;
+    }
+    public function getToken(): ?string
+    {
+        return $this->token;
+    }
+    public function setToken(string $token): self
+    {
+        $this->token = $token;
         return $this;
     }
 }
